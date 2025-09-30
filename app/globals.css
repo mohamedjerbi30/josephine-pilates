@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* White */
+    --foreground: 0 0% 0%; /* Black */
+
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 0 0% 0%; /* Black */
+
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 0 0% 0%; /* Black */
+
+    --primary: 266 28% 62%; /* #9181BC */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 33 64% 90%; /* #F3E7DA */
+    --secondary-foreground: 0 0% 0%; /* Black */
+
+    --muted: 33 64% 90%; /* #F3E7DA */
+    --muted-foreground: 0 0% 40%; /* Dark gray */
+
+    --accent: 266 28% 62%; /* #9181BC */
+    --accent-foreground: 0 0% 100%; /* White */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 33 64% 85%; /* Lighter version of #F3E7DA */
+    --input: 33 64% 85%; /* Lighter version of #F3E7DA */
+    --ring: 266 28% 62%; /* #9181BC */
+
+    --radius: 0.75rem;
+
+    /* Custom CSS variables for our color palette */
+    --purple: 266 28% 62%; /* #9181BC */
+    --cream: 33 64% 90%; /* #F3E7DA */
+    --white: 0 0% 100%;
+    --black: 0 0% 0%;
+  }
+
+  .dark {
+    --background: 0 0% 7%; /* Very dark gray instead of pure black for better readability */
+    --foreground: 0 0% 98%; /* Near white */
+
+    --card: 0 0% 10%; /* Dark gray */
+    --card-foreground: 0 0% 98%; /* Near white */
+
+    --popover: 0 0% 10%; /* Dark gray */
+    --popover-foreground: 0 0% 98%; /* Near white */
+
+    --primary: 266 28% 72%; /* Lighter #9181BC for dark mode */
+    --primary-foreground: 0 0% 7%; /* Dark background */
+
+    --secondary: 33 40% 20%; /* Darker cream for dark mode */
+    --secondary-foreground: 0 0% 98%; /* Near white */
+
+    --muted: 0 0% 15%; /* Dark muted */
+    --muted-foreground: 0 0% 70%; /* Light gray */
+
+    --accent: 266 28% 72%; /* Lighter #9181BC for dark mode */
+    --accent-foreground: 0 0% 7%; /* Dark background */
+
+    --destructive: 0 75% 65%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%; /* Dark border */
+    --input: 0 0% 20%; /* Dark input background */
+    --ring: 266 28% 72%; /* Lighter #9181BC for dark mode */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400; /* Montserrat Regular */
+  }
+  
+  /* Typography classes */
+  .font-montserrat-regular {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+  }
+  
+  .font-montserrat-semibold {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+  }
+
+  /* Headings use Montserrat Semi Bold */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+  }
+
+  /* Button and important text use Semi Bold */
+  button, .btn, .font-semibold, .font-bold {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+  }
+}
+
+/* Custom utility classes for our color palette */
+@layer utilities {
+  .bg-purple {
+    background-color: #9181BC;
+  }
+  
+  .bg-cream {
+    background-color: #F3E7DA;
+  }
+  
+  .text-purple {
+    color: #9181BC;
+  }
+  
+  .text-cream {
+    color: #F3E7DA;
+  }
+  
+  .border-purple {
+    border-color: #9181BC;
+  }
+  
+  .border-cream {
+    border-color: #F3E7DA;
+  }
+  
+  .ring-purple {
+    --tw-ring-color: #9181BC;
+  }
+  
+  .hover\:bg-purple:hover {
+    background-color: #9181BC;
+  }
+  
+  .hover\:bg-cream:hover {
+    background-color: #F3E7DA;
+  }
+
+  /* Gradient utilities */
+  .gradient-purple-to-cream {
+    background: linear-gradient(135deg, #9181BC 0%, #F3E7DA 100%);
+  }
+  
+  .gradient-cream-to-white {
+    background: linear-gradient(135deg, #F3E7DA 0%, #FFFFFF 100%);
+  }
+}
+
+/* Sidebar item styling with new colors */
+.menu-item {
+  @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ease-in-out text-sm;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+/* Active state with purple */
+.menu-item-active {
+  background-color: #9181BC;
+  @apply text-white shadow-md;
+}
+
+/* Inactive state */
+.menu-item-inactive {
+  @apply text-gray-700 hover:bg-cream hover:text-black dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white;
+}
+
+/* Icons */
+.menu-item-icon-active {
+  @apply text-white;
+}
+.menu-item-icon-inactive {
+  @apply text-gray-500 group-hover:text-gray-700 dark:group-hover:text-white;
+}
+
+/* Text */
+.menu-item-text {
+  @apply truncate;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+/* Scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #F3E7DA;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #9181BC;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #7d6ba8;
+}
+
+/* No scrollbar variant */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
